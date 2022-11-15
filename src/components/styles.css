@@ -59,9 +59,16 @@ gap: 10px;
     border-radius: 0;
 }
 .sign_in .btn{
-    background-color: black;
+    background-color: rgb(9, 8, 8);
     color: aliceblue;
     padding: 5px;
     width: 90px;
     cursor: pointer;
+}
+.btn button{
+    outline: none;
+    background: transparent;
+    color: aliceblue;
+    cursor: pointer;
+    border: none;
 }

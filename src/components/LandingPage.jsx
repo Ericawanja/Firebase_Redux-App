@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+
 import "./styles.css";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logIn, logOut } from "./features/LogIn/Log_in_slice";
 
 function LandingPage() {
+  const dispatch = useDispatch();
+
+  const [email,setEmail] = useState('')
+  const  emailId = useRef()
+  const handle_log = () => {
+    if(email.trim() === '') return emailId.current.focus()
+    console.log('f');
+    
+    dispatch(logIn());
+  };
   return (
     <div className="home_wrapper">
       <div className="home_main">
@@ -22,8 +36,17 @@ function LandingPage() {
               </span>
             </div>
             <div className="sign_in">
-              <input type="email" name=" sign_in_email" placeholder="Enter Email" />
-              <span className="btn">Get started</span>
+              <input
+                type="email"
+                name=" sign_in_email"
+                placeholder="Enter Email"
+                value = {email}
+                ref= {emailId}
+                onChange={(e)=>setEmail(e.target.value)}
+              />
+              <span className="btn"  onClick={handle_log}>
+                <button >Get Started</button>
+              </span>
             </div>
           </div>
         </div>
