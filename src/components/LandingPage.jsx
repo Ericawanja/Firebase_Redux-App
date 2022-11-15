@@ -11,7 +11,7 @@ function LandingPage() {
   const [email,setEmail] = useState('')
   const  emailId = useRef()
   const navigate = useNavigate()
-  const {isLoggedIn} = useState(state => state.logged)
+  const {isLoggedIn} = useSelector(state => state.logged)
   const handle_log = () => {
     if(email.trim() === '') return emailId.current.focus()
     console.log('f');
