@@ -1,0 +1,67 @@
+.home_wrapper {
+  background-color: rgb(236, 233, 228);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+.home_main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 50%;
+  height: 80vh;
+  background-color: rgb(246,247,249);
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 80px;
+}
+.store_name {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.home_right img {
+  width: 100%;
+  height: 95%;
+  border-radius: 6px;
+}
+.home_left {
+  margin: 0 20px;
+}
+.main_content .first_div {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
+.heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.main_content .sign_in {
+  padding-top: 30px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+  
+}
+.sign_in input{
+    padding: 6px;
+    border-radius: 0;
+}
+.sign_in .btn{
+    background-color: black;
+    color: aliceblue;
+    padding: 5px;
+    width: 90px;
+    cursor: pointer;
+}
