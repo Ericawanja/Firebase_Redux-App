@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,12 +10,20 @@ function LandingPage() {
 
   const [email,setEmail] = useState('')
   const  emailId = useRef()
+  const navigate = useNavigate()
+  const {isLoggedIn} = useState(state => state.logged)
   const handle_log = () => {
     if(email.trim() === '') return emailId.current.focus()
     console.log('f');
     
     dispatch(logIn());
+    if(isLoggedIn){
+      navigate('products')
+    }else {
+      navigate('/')
+    }
   };
+  console.log(isLoggedIn);
   return (
     <div className="home_wrapper">
       <div className="home_main">
