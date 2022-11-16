@@ -4,14 +4,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-
 }
 .home_main {
   display: grid;
   grid-template-columns: 50% 50%;
   width: 50%;
   height: 80vh;
-  background-color: rgb(246,247,249);
+  background-color: rgb(246, 247, 249);
   margin: auto;
   padding: 10px;
   border-radius: 10px;
@@ -49,44 +48,98 @@
 
 .main_content .sign_in {
   padding-top: 30px;
-display: flex;
-flex-direction: column;
-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sign_in input {
+  padding: 6px;
+  border-radius: 0;
+}
+.sign_in .btn {
+  background-color: rgb(9, 8, 8);
+  color: aliceblue;
+  padding: 5px;
+  width: 90px;
+  cursor: pointer;
+}
+.btn button {
+  outline: none;
+  background: transparent;
+  color: aliceblue;
+  cursor: pointer;
+  border: none;
+}
+.products_wrapper .header {
+  background-color: rgb(209, 87, 1);
+  padding: 20px;
+  color: aliceblue;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.nav {
+  display: flex;
+  gap: 10px;
+}
+.nav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.products_main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.side_inner_nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(209, 87, 1, 0.1);
+  height: 90vh;
+}
+.side_inner_nav link {
+  text-decoration: none;
+  color: black;
+}
+/******************Products******/
+.products_grid{
   
 }
-.sign_in input{
-    padding: 6px;
-    border-radius: 0;
-}
-.sign_in .btn{
-    background-color: rgb(9, 8, 8);
-    color: aliceblue;
-    padding: 5px;
-    width: 90px;
-    cursor: pointer;
-}
-.btn button{
-    outline: none;
-    background: transparent;
-    color: aliceblue;
-    cursor: pointer;
-    border: none;
-}
-.products_wrapper .header{
-    background-color: rgb(209,87,1);
-    padding: 20px;
-    color: aliceblue;
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-
-}
-.nav{
-    display: flex;
-    gap: 10px;
-}
-a{
-    text-decoration: none;
-    color: aliceblue;
+.inner_products_grid{
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  padding: 10px;
+  gap: 10px;
 }
 
+.product_card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  
+
+}
+.p_img img{
+  width: 200px;
+  height: 200px;
+}
+.cart_btn{
+  width: 100%;
+  background-color: rgb(209, 87, 1);
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  
+}
+.cart_btn button{
+  background-color: transparent;
+  border: none;
+}
+.p_title{
+  font-weight: 400;
+}
+.p_price{
+  font-size: .9rem;
+}

@@ -1,4 +1,5 @@
 import "./App.css";
+import "./components/styles.css"
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LandingPage from "./components/LandingPage";
