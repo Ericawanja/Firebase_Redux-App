@@ -5,7 +5,7 @@ import { getProducts } from "./features/Products/ProductsSlice";
 
 function ProductsContainer() {
   const dispatch = useDispatch();
-  const dummy_products = [1, 2, 3, 4, 5, 66, 7, 7];
+  
   useEffect(() => {
     dispatch(getProducts());
   }, []);
