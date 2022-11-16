@@ -70,6 +70,9 @@
   cursor: pointer;
   border: none;
 }
+.products_wrapper{
+  position: relative;
+}
 .products_wrapper .header {
   background-color: rgb(209, 87, 1);
   padding: 20px;
@@ -142,4 +145,37 @@
 }
 .p_price{
   font-size: .9rem;
+}
+/**************form**********************/
+.form_wrapper{
+  background-color: rgba(6, 5, 5, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+.p_form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 500px;
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 10px;
+  
+}
+.p_form input{
+  padding: 10px;
+}
+.form_btns{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.form_btns span{
+  padding: 10px;
+  background-color: rgb(209, 87, 1);
+  color: white;
 }
