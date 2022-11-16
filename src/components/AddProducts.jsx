@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { postProducts } from "./features/Products/ProductsSlice";
 
 function AddProducts() {
+  const dispath = useDispatch();
+
   const [formDetails, setFormDetails] = useState({
     name: "",
     description: "",
@@ -17,9 +21,15 @@ function AddProducts() {
     const name = event.target.name;
     const value = event.target.value;
     setFormDetails({ ...formDetails, [name]: value });
-    console.log(formDetails);
+    
   };
 
+  const handle_cancel = ()=>{
+
+  }
+  const handle_submit = ()=>{
+    dispath(postProducts(formDetails))
+  }
   return (
     <div className="form_wrapper">
       <div className="p_form">
@@ -73,8 +83,8 @@ function AddProducts() {
         />
 
         <div className="form_btns">
-          <span className="cancel">Cancel</span>
-          <span className="save">Save</span>
+          <span className="cancel" onClick={handle_cancel}>Cancel</span>
+          <span className="save" onClick={handle_submit}>Save</span>
         </div>
       </div>
     </div>

@@ -1,29 +1,34 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = { };
+const initialState = {};
 
-export const getProducts =  createAsyncThunk('products/getAll', async()=>{
-     return await axios.get('https://ecomerce-56433-default-rtdb.firebaseio.com/store.json').then(data=>data)
-     
-})
+export const getProducts = createAsyncThunk("products/getAll", async () => {
+  return await axios
+    .get("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json")
+    .then((data) => data);
+});
+export const postProducts = createAsyncThunk("products/post", async (product) => {
+  return await axios
+    .post("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json", product)
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error));
+});
 export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers: builder=>{
-    builder.addCase( getProducts.pending, state=>{
-        console.log('pending');
-
-    })
-    builder.addCase(getProducts.fulfilled, (state,actions)=>{
-
-       state.products_list = actions.payload.data
-    })
-    builder.addCase(getProducts.rejected, (state,action)=>{
-        alert(action.payload.error)
-    })
-  }
+  extraReducers: (builder) => {
+    builder.addCase(getProducts.pending, (state) => {
+      console.log("pending");
+    });
+    builder.addCase(getProducts.fulfilled, (state, actions) => {
+      state.products_list = actions.payload.data;
+    });
+    builder.addCase(getProducts.rejected, (state, action) => {
+      alert(action.payload.error);
+    });
+  },
 });
 
 export default productsSlice.reducer;
