@@ -17,11 +17,9 @@ function LandingPage() {
     console.log('f');
     
     dispatch(logIn());
-    if(isLoggedIn){
+  
       navigate('products')
-    }else {
-      navigate('/')
-    }
+    
   };
   console.log(isLoggedIn);
   return (
