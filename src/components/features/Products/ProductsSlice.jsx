@@ -4,14 +4,19 @@ import axios from "axios";
 const initialState = {};
 
 export const getProducts = createAsyncThunk("products/getAll", async () => {
-  return await axios
+  const {data} =  await axios
     .get("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json")
     .then((data) => data);
+console.log(data)
+    const dataKeys = Object.keys(data);   
+    const dataArray = dataKeys.map(key=>({id: key, ...data[key]}))
+    
+    return {data: dataArray}
 });
 export const postProducts = createAsyncThunk("products/post", async (product) => {
   return await axios
     .post("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json", product)
-    .then((response) => console.log(response))
+    .then((response) => console.log(response.data))
     .catch((error) => console.log(error));
 });
 export const productsSlice = createSlice({

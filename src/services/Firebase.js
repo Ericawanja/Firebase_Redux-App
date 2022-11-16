@@ -7,7 +7,7 @@ dotenv.config()
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_KEY,
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "ecomerce-56433.firebaseapp.com",
   projectId: "ecomerce-56433",
   storageBucket: "ecomerce-56433.appspot.com",

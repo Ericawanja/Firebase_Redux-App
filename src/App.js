@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AddProducts from "./components/AddProducts";
-import ProductsContainer from "./ProductsContainer";
+import ProductsContainer from "./components/ProductsContainer";
 
 function App() {
   const { isLoggedIn } = useSelector((state) => state.logged);
