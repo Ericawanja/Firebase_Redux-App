@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { logOut } from "./features/LogIn/Log_in_slice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -33,6 +33,7 @@ function Products() {
           <Link to="products">Products</Link>
           <Link to="About">About</Link>
           <Link to="Contact">Contact</Link>
+          <Link to="Add Product">Add product</Link>
         </div>
         <div className="logout">
           <span onClick={handle_logout}>Log Out</span>
@@ -48,27 +49,10 @@ function Products() {
               })}
           </div>
         </div>
-        <div className="products_grid">
-          <div className="inner_products_grid">
-            {dummy_products.length > 0 &&
-              dummy_products.map((product) => {
-                return (
-                  <div className="product_card">
-                    <span className="p_img">
-                      <img
-                        src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                        alt="product image"
-                      />
-                    </span>
-                    <span className="p_title">Title</span>
-                    <span className="p_price"> $ 489</span>
-                    <span className="cart_btn"><button>Add to cart</button></span>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
+        
+        <Outlet />
       </div>
+      
     </div>
   );
 }
