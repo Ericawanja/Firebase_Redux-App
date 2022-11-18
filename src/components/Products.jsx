@@ -4,10 +4,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import { logOut } from "./features/LogIn/Log_in_slice";
+import { logOut } from "../redux/slices/Log_in_slice";
 import { useNavigate } from "react-router-dom";
 
-import { getProducts } from "./features/Products/ProductsSlice";
+import { getProducts } from "../redux/slices/ProductsSlice";
 
 function Products() {
   const dispatch = useDispatch();

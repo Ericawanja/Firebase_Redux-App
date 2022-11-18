@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logIn, logOut } from "./features/LogIn/Log_in_slice";
+import { logIn, logOut } from "../redux/slices/Log_in_slice";
 
 function LandingPage() {
   const dispatch = useDispatch();

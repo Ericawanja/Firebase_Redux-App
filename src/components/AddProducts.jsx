@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postProducts } from "./features/Products/ProductsSlice";
+import { postProducts } from "../redux/slices/ProductsSlice";
 
 function AddProducts() {
   const dispath = useDispatch();
+  const navigate = useNavigate();
 
   const [formDetails, setFormDetails] = useState({
     name: "",
@@ -21,15 +23,16 @@ function AddProducts() {
     const name = event.target.name;
     const value = event.target.value;
     setFormDetails({ ...formDetails, [name]: value });
-    
   };
 
-  const handle_cancel = ()=>{
+  const handle_cancel = () => {
+    navigate("/products");
+  };
+  const handle_submit = () => {
+    dispath(postProducts(formDetails));
+    navigate("/products");
+  };
 
-  }
-  const handle_submit = ()=>{
-    dispath(postProducts(formDetails))
-  }
   return (
     <div className="form_wrapper">
       <div className="p_form">
@@ -83,8 +86,12 @@ function AddProducts() {
         />
 
         <div className="form_btns">
-          <span className="cancel" onClick={handle_cancel}>Cancel</span>
-          <span className="save" onClick={handle_submit}>Save</span>
+          <span className="cancel" onClick={handle_cancel}>
+            Cancel
+          </span>
+          <span className="save" onClick={handle_submit}>
+            Save
+          </span>
         </div>
       </div>
     </div>
