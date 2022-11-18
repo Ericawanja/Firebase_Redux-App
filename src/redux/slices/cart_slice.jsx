@@ -11,14 +11,19 @@ const cartSlice = createSlice({
     add_cart: (state, { payload }) => {
        state.cart_value =  state.cart_value + 1
       state.cart_list.push(payload)
-      //console.log(state.cart_value, state.cart_list.length);
+      
       return  state;
     },
     remove_cart:(state, {payload})=>{
-        console.log('removing')
+        let item_index = state.cart_list.findIndex((c_item)=> c_item.id === payload)
+        console.log(item_index);
+        state.cart_list.splice(item_index, 1)
+        state.cart_value =  state.cart_value - 1
+       
+        return state;
     }
   },
 });
 
-export const {add_cart} = cartSlice.actions
+export const {add_cart, remove_cart} = cartSlice.actions
 export default cartSlice.reducer
