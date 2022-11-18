@@ -7,13 +7,15 @@ import { Link, Outlet } from "react-router-dom";
 import { logOut } from "../redux/slices/Log_in_slice";
 import { useNavigate } from "react-router-dom";
 
-import { getProducts } from "../redux/slices/ProductsSlice";
+
 
 function Products() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isLoggedIn } = useSelector((state) => state.logged);
+  const {cart_value, cart_list} = useSelector(state=>state.cart)
+  console.log('value',cart_list);
 
   const [categories, setCategories] = useState([1, 2, 3, 4, 5]);
 
@@ -34,6 +36,7 @@ function Products() {
             <IconContext.Provider value={{ size: "30px", color: "white" }}>
               <AiOutlineShoppingCart />
             </IconContext.Provider>
+            <span className="cart_count">{cart_value}</span>
           </span>
         </div>
         <div className="logout">
@@ -44,8 +47,8 @@ function Products() {
         <div className="side_nav">
           <div className="side_inner_nav">
             {categories.length > 0 &&
-              categories.map((c) => {
-                return <Link to="/">Jewellery</Link>;
+              categories.map((c, index) => {
+                return <Link to="/" key={index}>Jewellery</Link>;
               })}
           </div>
         </div>

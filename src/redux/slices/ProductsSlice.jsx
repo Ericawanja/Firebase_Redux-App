@@ -11,7 +11,7 @@ export const getProducts = createAsyncThunk("products/getAll", async () => {
   const {data} =  await axios
     .get("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json")
     .then((data) => data);
-console.log(data)
+
     const dataKeys = Object.keys(data);   
     const dataArray = dataKeys.map(key=>({id: key, ...data[key]}))
     
@@ -29,7 +29,7 @@ export const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getProducts.pending, (state) => {
-      console.log("pending");
+      
     });
     builder.addCase(getProducts.fulfilled, (state, actions) => {
       state.products_list = actions.payload.data;
