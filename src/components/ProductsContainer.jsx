@@ -12,11 +12,7 @@ function ProductsContainer() {
   }, []);
   const products = useSelector((state) => state.products.products_list);
   const { cart_list } = useSelector((state) => state.cart);
-  //console.log(cart_list);
-
-  // const handle_cart_add = (product) => {
-  //   dispatch(add_cart(product));
-  // };
+  
 
   return (
     <div>

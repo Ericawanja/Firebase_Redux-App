@@ -8,6 +8,7 @@ import Products from "./components/Products";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AddProducts from "./components/AddProducts";
 import ProductsContainer from "./components/ProductsContainer";
+import Cart from "./components/Cart";
 
 function App() {
   const { isLoggedIn } = useSelector((state) => state.logged);
@@ -24,6 +25,7 @@ function App() {
               
               <Route index element={<ProductsContainer/>} />
               <Route path="add" element={<AddProducts />} />
+              <Route path="cart" element={<Cart/>}/>
             </Route>
           </Route>
 

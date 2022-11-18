@@ -32,12 +32,12 @@ function Products() {
           <Link to="About">About</Link>
           <Link to="Contact">Contact</Link>
           <Link to="/products/add">Add product</Link>
-          <span className="cart_icon">
+          <Link className="cart_icon" to="/products/cart">
             <IconContext.Provider value={{ size: "30px", color: "white" }}>
               <AiOutlineShoppingCart />
             </IconContext.Provider>
             <span className="cart_count">{cart_value}</span>
-          </span>
+          </Link>
         </div>
         <div className="logout">
           <span onClick={handle_logout}>Log Out</span>
