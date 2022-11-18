@@ -1,14 +1,14 @@
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const { cart_list, cart_value } = useSelector((state) => state.cart);
   return (
     <div className="cartWrapper">
       <div className="inner_cart_wrapper">
-       
-        {cart_list.length > 0 ?
+        {cart_list.length > 0 ? (
           cart_list.map((item) => {
             let { id, name, description, price, discount, imageUrl } = item;
             return (
@@ -23,13 +23,16 @@ function Cart() {
                     <span className="cart_p_desc">{description}</span>
                   </div>
                 </div>
-                <div className="cart_right">
-
-                </div>
+                <div className="cart_right"></div>
               </div>
             );
           })
-        :<h1>Nothing in the cart</h1>}
+        ) : (
+          <span className="empty_cart">
+            <h1>Nothing in the cart</h1>
+            <Link to="/products" className="go_back"><button >Go Back</button></Link>
+          </span>
+        )}
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ function LandingPage() {
     <div className="home_wrapper">
       <div className="home_main">
         <div className="home_left">
-          <div className="header">
+          <div className="logo_container">
             <span className="logo">
               <img src="./images/img1.jpg" alt="logo" />
             </span>
