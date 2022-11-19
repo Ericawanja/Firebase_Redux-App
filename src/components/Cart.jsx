@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { add_cart, remove_cart } from "../redux/slices/cart_slice";
+import {add_cart_product, remove_product, clear_cart, reduce_cart } from "../redux/slices/cart_slice";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -41,13 +41,16 @@ function Cart() {
                     </div>
                   </div>
                   <div className="cart_right">
+                    <div className="first_div">
                     <span className="product_cost">
                       Cost: {quantity * price}
                     </span>
-                    <span className="cart_btn extra_btns">
+                    <span className="remove_btn" onClick={()=>dispatch(remove_product(id))}>Remove</span>
+                    </div>
+                    <div className="cart_btn extra_btns">
                       <span
                         className="plus_cart_icon"
-                        onClick={() => dispatch(add_cart(item))}
+                        onClick={() => dispatch(add_cart_product(item))}
                       >
                         {" "}
                         +{" "}
@@ -55,17 +58,18 @@ function Cart() {
                       <span>{quantity}</span>
                       <span
                         className="minus_cart_icon"
-                        onClick={() => dispatch(remove_cart(id))}
+                        onClick={() => dispatch(reduce_cart(id))}
                       >
                         {" "}
                         -
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               );
             })}
             <div className="total_cost">Total cost: ${total_cost}</div>
+            <div className="clear_cart"  onClick={()=>dispatch(clear_cart())}><button>Clear cart</button></div>
           </div>
         ) : (
           <span className="empty_cart">

@@ -8,7 +8,7 @@ const cartSlice = createSlice({
   name: "cart_slice",
   initialState,
   reducers: {
-    add_cart: (state, { payload }) => {
+    add_cart_product: (state, { payload }) => {
       state.cart_value = state.cart_value + 1;
       // console.log(current(state));
       //check iof item exist in cart
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
 
       return state;
     },
-    remove_cart: (state, { payload }) => {
+    reduce_cart: (state, { payload }) => {
       state.cart_value = state.cart_value - 1;
       //reduce quantity
       state.cart_list = state.cart_list.map((c_item) => {
@@ -38,12 +38,24 @@ const cartSlice = createSlice({
         }
         return c_item;
       });
-//filter item with quantinty less than 1
-      state.cart_list = state.cart_list.filter(c_item=> c_item.quantity > 0)
+      //filter item with quantinty less than 1
+      state.cart_list = state.cart_list.filter((c_item) => c_item.quantity > 0);
       //console.log(state.cart_list);
     },
+    remove_product:(state, {payload})=>{
+      console.log('re', payload);
+      state.cart_list= state.cart_list.filter(c_item=>c_item.id !== payload)
+      //return state;
+
+    },
+    clear_cart:(state)=>{
+      state.cart_value = 0;
+      state.cart_list = []
+      return state
+
+    }
   },
 });
 
-export const { add_cart, remove_cart } = cartSlice.actions;
+export const { add_cart_product, reduce_cart, remove_product, clear_cart } = cartSlice.actions;
 export default cartSlice.reducer;

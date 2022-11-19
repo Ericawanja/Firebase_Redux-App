@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getProducts } from "../redux/slices/ProductsSlice";
-import { add_cart, remove_cart } from "../redux/slices/cart_slice";
+import { add_cart_product, reduce_cart } from "../redux/slices/cart_slice";
 
 function ProductsContainer() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function ProductsContainer() {
                     <span className="cart_btn extra_btns">
                       <span
                         className="plus_cart_icon"
-                        onClick={() => dispatch(add_cart(product))}
+                        onClick={() => dispatch(add_cart_product(product))}
                       >
                         {" "}
                         +{" "}
@@ -42,7 +42,7 @@ function ProductsContainer() {
                       <span>{ cart_list.find((c_item) => product.id === c_item.id).quantity}</span>
                       <span
                         className="minus_cart_icon"
-                        onClick={() => dispatch(remove_cart(id))}
+                        onClick={() => dispatch(reduce_cart(id))}
                       >
                         {" "}
                         -
@@ -51,7 +51,7 @@ function ProductsContainer() {
                   ) : (
                     <span
                       className="cart_btn"
-                      onClick={() => dispatch(add_cart(product))}
+                      onClick={() => dispatch(add_cart_product(product))}
                     >
                       <button>Add to cart</button>
                     </span>
