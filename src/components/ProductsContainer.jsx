@@ -19,19 +19,18 @@ function ProductsContainer() {
       <div className="products_grid">
         <div className="inner_products_grid">
           {products &&
-            products.map((product) => {
-              let { id, name, price, imageUrl } = product;
-              let items_in_cart = cart_list.filter(
-                (c_item) => c_item.id === id
-              ).length;
+            products.map((product, index) => {
+              let { id,  name, price, imageUrl } = product;
+              
               return (
-                <div className="product_card" key={id}>
+                <div className="product_card"  key={index}>
                   <span className="p_img">
                     <img src={imageUrl} alt="product image" />
                   </span>
                   <span className="p_title">{name}</span>
                   <span className="p_price"> ${price}</span>
                   {cart_list.find((c_item) => product.id === c_item.id) ? (
+                   
                     <span className="cart_btn extra_btns">
                       <span
                         className="plus_cart_icon"
@@ -40,7 +39,7 @@ function ProductsContainer() {
                         {" "}
                         +{" "}
                       </span>
-                      <span>{items_in_cart}</span>
+                      <span>{ cart_list.find((c_item) => product.id === c_item.id).quantity}</span>
                       <span
                         className="minus_cart_icon"
                         onClick={() => dispatch(remove_cart(id))}

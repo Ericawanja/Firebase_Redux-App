@@ -14,7 +14,7 @@ function Products() {
 
   const { isLoggedIn } = useSelector((state) => state.logged);
   const { cart_value, cart_list } = useSelector((state) => state.cart);
-  console.log("value", cart_list);
+  //console.log("value", cart_list);
 
   const [categories, setCategories] = useState([1, 2, 3, 4, 5]);
 

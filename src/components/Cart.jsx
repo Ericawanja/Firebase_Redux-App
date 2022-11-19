@@ -14,7 +14,7 @@ function Cart() {
         <h2>Cart items</h2>
         {cart_list.length > 0 ? (
           cart_list.map((item) => {
-            let { id, name, description, price, discount, imageUrl } = item;
+            let { id, name, description, price, discount, imageUrl, quantity } = item;
             return (
               <div className="cart_card">
                 <div className="cart_left">
@@ -36,7 +36,7 @@ function Cart() {
                       {" "}
                       +{" "}
                     </span>
-                    <span>0</span>
+                    <span>{quantity}</span>
                     <span
                       className="minus_cart_icon"
                       onClick={() => dispatch(remove_cart(id))}

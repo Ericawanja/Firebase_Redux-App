@@ -264,17 +264,25 @@
 }
 
 .inner_cart_wrapper {
-  width: 600px;
+  width: 800px;
   height: fit-content;
   background-color: white;
   padding: 15px;
   border-radius: 10px;
   margin: 30px;
+  padding-left:10px ;
+}
+.inner_cart_wrapper h2{
+  text-align: center;
+  line-height: 3;
+  background-color: rgba(209, 87, 1, .5);
+  color: aliceblue;
 }
 .cart_card {
   display: grid;
   grid-template-columns: 70% 30%;
   gap: 15px;
+  margin-top: 20px;
 }
 .cart_left {
   display: flex;
@@ -283,7 +291,16 @@
 .cart_product_details {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
+  
+}
+.cart_right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
 .cart_img img {
   width: 200px;
