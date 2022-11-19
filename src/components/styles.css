@@ -298,9 +298,22 @@
 }
 .cart_right{
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-right:15px ;
  
+}
+.product_cost{
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+.total_cost{
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 900;
+
 }
 .cart_img img {
   width: 200px;
