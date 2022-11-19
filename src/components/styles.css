@@ -148,6 +148,7 @@
 }
 .categories a{
   padding: 8px;
+  text-transform: capitalize;
 }
 .categories a:hover{
   background-color: rgb(209, 87, 1);
@@ -235,7 +236,7 @@
   flex-direction: column;
   gap: 15px;
   width: 500px;
-  background-color: aliceblue;
+  background-color: rgb(232,171,128);
   padding: 15px;
   border-radius: 10px;
 }
@@ -328,6 +329,17 @@
 }
 .cart_img img {
   width: 200px;
+}
+.cart_p_title{
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.cart_p_price{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.cart_p_desc{
+  font-size: .9rem;
 }
 .clear_cart{
   display: flex;

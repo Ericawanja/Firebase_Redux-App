@@ -8,20 +8,45 @@ import { Link, Outlet } from "react-router-dom";
 import { logOut } from "../redux/slices/Log_in_slice";
 import { useNavigate } from "react-router-dom";
 
+import { getProducts } from "../redux/slices/ProductsSlice";
+
 function Products() {
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isLoggedIn } = useSelector((state) => state.logged);
-  const { cart_value, cart_list } = useSelector((state) => state.cart);
-  //console.log("value", cart_list);
+  const { cart_list } = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.products.products_list);
 
-  const [categories, setCategories] = useState([1, 2, 3, 4, 5]);
+  let categories = [];
 
-  const handle_logout = () => {
+  const handle_logout = (event) => {
+    event.stopPropagation()
     dispatch(logOut());
     navigate("/");
   };
+
+  //calaculating items in the cart
+  let items_in_cart = cart_list.reduce((x, y) => {
+    if (y.quantity) return x + y.quantity;
+    return x + 0;
+  }, 0);
+
+  //getting the categories
+  const getCategories = () => {
+    let All_categories = [];
+    for (let i = 0; i < products.length; i++) {
+      let new_c = products[i].category;
+      All_categories.push(new_c);
+    }
+
+    let category_set = new Set(All_categories);
+    categories = Array.from(category_set);
+  };
+  getCategories();
 
   return (
     <div className="products_wrapper">
@@ -33,7 +58,7 @@ function Products() {
           <span className="store_name">Store</span>
         </div>
         <div className="nav">
-          <Link to="products">Products</Link>
+          <Link to="/products">Products</Link>
           <Link to="About">About</Link>
           <Link to="Contact">Contact</Link>
           <Link to="/products/add">Add product</Link>
@@ -41,7 +66,7 @@ function Products() {
             <IconContext.Provider value={{ size: "30px", color: "white" }}>
               <AiOutlineShoppingCart />
             </IconContext.Provider>
-            <span className="cart_count">{cart_value}</span>
+            <span className="cart_count">{items_in_cart}</span>
           </Link>
         </div>
       </div>
@@ -53,19 +78,21 @@ function Products() {
               {categories.length > 0 &&
                 categories.map((c, index) => {
                   return (
-                    <Link to="/" key={index}>
-                      Jewellery
-                    </Link>
+                    <span className="categories" key= {index} >
+                      <Link to="/" key={index}>
+                        {c}
+                      </Link>
+                    </span>
                   );
                 })}
             </div>
-            <div className="logout" onClick={handle_logout}>
-              <span >
+            <div className="logout">
+              <span  onClick={(e)=>handle_logout(e)}>
                 <IconContext.Provider value={{ size: "30px", color: "black" }}>
                   <MdExitToApp />
                 </IconContext.Provider>
               </span>
-              <span>Log Out</span>
+              <span  onClick={(e)=>handle_logout(e)}>Log Out</span>
             </div>
           </div>
         </div>

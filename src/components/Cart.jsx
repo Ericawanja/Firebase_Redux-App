@@ -2,16 +2,20 @@ import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {add_cart_product, remove_product, clear_cart, reduce_cart } from "../redux/slices/cart_slice";
+import {
+  add_cart_product,
+  remove_product,
+  clear_cart,
+  reduce_cart,
+} from "../redux/slices/cart_slice";
 
 function Cart() {
   const dispatch = useDispatch();
   const { cart_list, cart_value } = useSelector((state) => state.cart);
   const total_cost = cart_list.reduce((x, y) => {
-    
-    return x + (y.quantity * y.price);
+    return x + y.quantity * y.price;
   }, 0);
-  console.log(total_cost);
+
   return (
     <div className="cartWrapper">
       <div className="inner_cart_wrapper">
@@ -42,10 +46,15 @@ function Cart() {
                   </div>
                   <div className="cart_right">
                     <div className="first_div">
-                    <span className="product_cost">
-                      Cost: {quantity * price}
-                    </span>
-                    <span className="remove_btn" onClick={()=>dispatch(remove_product(id))}>Remove</span>
+                      <span className="product_cost">
+                        Cost: {quantity * price}
+                      </span>
+                      <span
+                        className="remove_btn"
+                        onClick={() => dispatch(remove_product(id))}
+                      >
+                        Remove
+                      </span>
                     </div>
                     <div className="cart_btn extra_btns">
                       <span
@@ -69,7 +78,9 @@ function Cart() {
               );
             })}
             <div className="total_cost">Total cost: ${total_cost}</div>
-            <div className="clear_cart"  onClick={()=>dispatch(clear_cart())}><button>Clear cart</button></div>
+            <div className="clear_cart" onClick={() => dispatch(clear_cart())}>
+              <button>Clear cart</button>
+            </div>
           </div>
         ) : (
           <span className="empty_cart">
