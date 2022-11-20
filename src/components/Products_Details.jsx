@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { add_review } from "../redux/slices/Review_slice";
 
 function Products_Details() {
 const {id} = useParams()
+const navigate = useNavigate()
 
   const dispatch = useDispatch();
   const {reviews} = useSelector(state=>state.reviews)
@@ -47,7 +48,7 @@ const {id} = useParams()
     <div className="p_detail_container">
       <div className="p_inner_wrapper">
         <span className="close_review_page">
-          <Link to="/products"> X </Link>
+          <Link to={navigate(-1)}> X </Link>
         </span>
         <div className="item_details">
           <div className="item_image">
