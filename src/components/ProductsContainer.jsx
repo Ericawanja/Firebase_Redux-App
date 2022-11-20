@@ -14,7 +14,7 @@ function ProductsContainer() {
   const products = useSelector((state) => state.products.products_list);
   const { cart_list } = useSelector((state) => state.cart);
 
-  console.log(products);
+
 
 
   return (

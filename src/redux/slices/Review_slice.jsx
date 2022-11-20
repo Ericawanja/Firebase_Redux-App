@@ -10,7 +10,7 @@ const reviewsSlice = createSlice({
     reducers:{
         add_review:(state, {payload})=>{
             console.log('adding review', payload, current(state.reviews));
-            state.reviews = [...state.reviews, payload]
+            state.reviews = [payload, ...state.reviews]
             return state;
 
         },
