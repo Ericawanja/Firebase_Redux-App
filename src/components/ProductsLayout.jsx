@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { getProducts } from "../redux/slices/ProductsSlice";
 
-function Products() {
+function ProductsLayout() {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -61,8 +61,8 @@ function Products() {
         </div>
         <div className="nav">
           <Link to="/products">Products</Link>
-          <Link to="About">About</Link>
-          <Link to="Contact">Contact</Link>
+          <Link to="/About">About</Link>
+          <Link to="/Contact">Contact</Link>
           <Link to="/products/add">Add product</Link>
           <Link className="cart_icon" to="/products/cart">
             <IconContext.Provider value={{ size: "30px", color: "white" }}>
@@ -89,7 +89,7 @@ function Products() {
                     
                   );
                 })}
-                <Link to='/products' className= {pathname === '/products' ? 'active' : ''}>All Products</Link>
+                <Link to='/products' className={pathname === '/products' ? 'active' : ''}>All Products</Link>
                 </span>
             </div>
             <div className="logout">
@@ -109,4 +109,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductsLayout;
