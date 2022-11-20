@@ -154,6 +154,11 @@
   background-color: rgb(209, 87, 1);
   color: aliceblue;
 }
+
+.categories a.active{
+  background-color: rgb(209, 87, 1);
+  color: aliceblue;
+}
 .logout{
   display: flex;
   align-items: center;

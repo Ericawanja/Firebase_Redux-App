@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdExitToApp } from "react-icons/md";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { logOut } from "../redux/slices/Log_in_slice";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,8 @@ function Products() {
   }, []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {pathname} = useLocation()
+
 
   const { isLoggedIn } = useSelector((state) => state.logged);
   const { cart_list } = useSelector((state) => state.cart);
@@ -78,15 +80,16 @@ function Products() {
               <span className="categories"  >
               {categories.length > 0 &&
                 categories.map((c, index) => {
+                  const to = `/products/category/${c}`
                   return (
                   
-                      <Link to={`${c}`} key={index}>
+                      <Link to={to} className= {pathname === to ? 'active': ''} key={index}>
                         {c}
                       </Link>
                     
                   );
                 })}
-                <Link to='/products'>All Products</Link>
+                <Link to='/products' className= {pathname === '/products' ? 'active' : ''}>All Products</Link>
                 </span>
             </div>
             <div className="logout">
