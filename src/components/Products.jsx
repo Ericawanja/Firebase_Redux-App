@@ -79,7 +79,7 @@ function Products() {
                 categories.map((c, index) => {
                   return (
                     <span className="categories" key= {index} >
-                      <Link to="/" key={index}>
+                      <Link to={`${c}`} key={index}>
                         {c}
                       </Link>
                     </span>
