@@ -1,12 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
-const initialState= []
+const initialState= {
+    reviews:[]
+}
 
 const reviewsSlice = createSlice({
-    name: reviews,
+    name: 'reviews',
     initialState,
     reducers:{
         add_review:(state, {payload})=>{
+            console.log('adding review', payload, current(state.reviews));
+            state.reviews = [...state.reviews, payload]
+            return state;
 
         },
         delete_review:(state, {payload})=>{
@@ -17,3 +22,5 @@ const reviewsSlice = createSlice({
         }
     }
 })
+export const {add_review, delete_review,edit_review} = reviewsSlice.actions
+export default reviewsSlice.reducer
