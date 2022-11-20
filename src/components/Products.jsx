@@ -75,16 +75,19 @@ function Products() {
           <div className="side_inner_nav">
             <div className="categories">
               <h2>Categories</h2>
+              <span className="categories"  >
               {categories.length > 0 &&
                 categories.map((c, index) => {
                   return (
-                    <span className="categories" key= {index} >
+                  
                       <Link to={`${c}`} key={index}>
                         {c}
                       </Link>
-                    </span>
+                    
                   );
                 })}
+                <Link to='/products'>All Products</Link>
+                </span>
             </div>
             <div className="logout">
               <span  onClick={(e)=>handle_logout(e)}>
