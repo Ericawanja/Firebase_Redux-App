@@ -48,7 +48,8 @@ const navigate = useNavigate()
     <div className="p_detail_container">
       <div className="p_inner_wrapper">
         <span className="close_review_page">
-          <Link to={navigate(-1)}> X </Link>
+          {/* <Link to={navigate(-1)}> X </Link> */}
+          <Link to={`/products`}> X </Link>
         </span>
         <div className="item_details">
           <div className="item_image">
