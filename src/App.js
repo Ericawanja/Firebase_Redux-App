@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LandingPage from "./components/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Products from "./components/Products";
+import  ProductsLayout from "./components/ProductsLayout";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AddProducts from "./components/AddProducts";
 import ProductsContainer from "./components/ProductsContainer";
@@ -19,11 +19,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          {/* <Route path='products' element={<ProtectedRoute user={isLoggedIn}>
-            <Products/>
-          </ProtectedRoute>}/> */}
+          
           <Route element={<ProtectedRoute user={isLoggedIn} />}>
-            <Route path="products" element={<Products/>}>
+            <Route path="products" element={< ProductsLayout/>}>
               
               <Route index element={<ProductsContainer/>} />
               <Route path="add" element={<AddProducts />} />
