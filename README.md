@@ -31,3 +31,5 @@ To come up with these app, I also used other basic reactJs concepts such as:
 ## 4. Javascript 
 
 For the data manipulation i used various javascript data structures such as Arrays and objects an various methods to manipulate the data
+
+# [Live link](https://reduxtoolkitfirebaseapp.netlify.app/)
