@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postProducts } from "../redux/slices/ProductsSlice";
+import { getProducts, postProducts } from "../redux/slices/ProductsSlice";
 
 function AddProducts() {
   const dispath = useDispatch();
@@ -59,6 +59,7 @@ const [empty_field_msg, setEmpty_field] = useState('')
     }
 
     dispath(postProducts(formDetails));
+    
     navigate("/products");
   };
 

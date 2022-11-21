@@ -17,10 +17,11 @@ export const getProducts = createAsyncThunk("products/getAll", async () => {
     
     return {data: dataArray}
 });
-export const postProducts = createAsyncThunk("products/post", async (product) => {
+export const postProducts = createAsyncThunk("products/post",   async (product, apiThunk) => {
   return await axios
     .post("https://ecomerce-56433-default-rtdb.firebaseio.com/store.json", product)
-    .then((response) => console.log(response.data))
+    .then((response) => response.data)
+    .then(()=>apiThunk.dispatch(getProducts()))
     .catch((error) => console.log(error));
 });
 export const productsSlice = createSlice({

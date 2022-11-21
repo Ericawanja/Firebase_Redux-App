@@ -61,9 +61,10 @@ function ProductsLayout() {
         </div>
         <div className="nav">
           <Link to="/products">Products</Link>
+          <Link to="/products/add">Add product</Link>
           <Link to="/About">About</Link>
           <Link to="/Contact">Contact</Link>
-          <Link to="/products/add">Add product</Link>
+          
           <Link className="cart_icon" to="/products/cart">
             <IconContext.Provider value={{ size: "30px", color: "white" }}>
               <AiOutlineShoppingCart />
